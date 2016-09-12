@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ktor-jade.iml" filepath="$PROJECT_DIR$/.idea/modules/ktor-jade.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ktor-jade_main.iml" filepath="$PROJECT_DIR$/.idea/modules/ktor-jade_main.iml" group="ktor-jade" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ktor-jade_test.iml" filepath="$PROJECT_DIR$/.idea/modules/ktor-jade_test.iml" group="ktor-jade" />
+    </modules>
+  </component>
+</project>

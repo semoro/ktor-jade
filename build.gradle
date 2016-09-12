@@ -1,0 +1,38 @@
+group 'me.semoro'
+version '0.0.1'
+
+buildscript {
+    ext.kotlin_version = '1.0.3'
+
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    jcenter()
+    maven { url "https://dl.bintray.com/kotlin/ktor/" }
+}
+
+
+apply plugin: 'kotlin'
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+    // https://mvnrepository.com/artifact/de.neuland-bfi/jade4j
+    compile group: 'de.neuland-bfi', name: 'jade4j', version: '1.2.3'
+    compile 'org.jetbrains.ktor:ktor-core:0.2.2'
+
+    testCompile 'junit:junit:4.12'
+    testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
+    testCompile 'org.jetbrains.ktor:ktor-core:0.2.2:tests'
+}
