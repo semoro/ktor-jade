@@ -12,10 +12,6 @@ import org.jetbrains.ktor.util.ValuesMap
 import java.io.OutputStream
 import kotlin.reflect.KClass
 
-/**
- * Created by Semoro on 12.09.16.
- * ©XCodersTeam, 2016
- */
 
 class JadeTemplateResource internal constructor(val configuration: JadeConfiguration, val template: JadeTemplate, val model: Map<String, Any>, val etag: String) : FinalContent.StreamConsumer(), Resource {
     override val contentType: ContentType
