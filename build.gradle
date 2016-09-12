@@ -6,11 +6,14 @@ buildscript {
 
     repositories {
         mavenCentral()
+        jcenter()
     }
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7'
     }
 }
+
 
 
 apply plugin: 'eclipse'
@@ -35,4 +38,34 @@ dependencies {
     testCompile 'junit:junit:4.12'
     testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
     testCompile 'org.jetbrains.ktor:ktor-core:0.2.2:tests'
+}
+
+apply plugin: "maven-publish"
+publishing {
+    publications {
+        BintrayPublication(MavenPublication) {
+            from components.java
+            groupId 'me.semoro'
+            artifactId rootProject.name
+            version rootProject.version
+        }
+    }
+}
+
+
+apply plugin: 'com.jfrog.bintray'
+
+bintray {
+    user = System.getenv('BINTRAY_USER')
+    key = System.getenv('BINTRAY_KEY')
+    pkg {
+        repo = 'github'
+        name = 'ktor-jade'
+        licenses = ['MIT']
+        vcsUrl = 'https://github.com/semoro/ktor-jade.git'
+        version {
+            name = rootProject.version
+        }
+    }
+    publications = ["BintrayPublication"]
 }
